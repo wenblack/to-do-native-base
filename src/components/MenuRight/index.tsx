@@ -55,6 +55,9 @@ export function MenuRight() {
 							color={
 								colorMode === 'dark' ? 'white' : '#166534'
 							}
+							textColor={
+								colorMode === 'dark' ? 'white' : '#166534'
+							}
 						/>
 					</Menu.Item>
 					<Menu.Item >
@@ -62,6 +65,9 @@ export function MenuRight() {
 							iconName='user'
 							title='Edit your Name'
 							color={
+								colorMode === 'dark' ? 'white' : '#166534'
+							}
+							textColor={
 								colorMode === 'dark' ? 'white' : '#166534'
 							}
 						/>
@@ -73,6 +79,9 @@ export function MenuRight() {
 							color={
 								colorMode === 'dark' ? 'white' : '#166534'
 							}
+							textColor={
+								colorMode === 'dark' ? 'white' : '#166534'
+							}
 						/>
 					</Menu.Item>
 					<Menu.Item>
@@ -80,6 +89,9 @@ export function MenuRight() {
 							iconName='power'
 							title='Log Out'
 							color={
+								colorMode === 'dark' ? 'white' : '#166534'
+							}
+							textColor={
 								colorMode === 'dark' ? 'white' : '#166534'
 							}
 						/>

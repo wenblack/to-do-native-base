@@ -141,10 +141,12 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 			<HStack
 				safeArea
 				width={'full'}
+				w={'100%'}
 				alignItems='center'
 				flexDirection={'row'}
 				justifyContent={'center'}
 				display='flex'
+				flex={1}
 				position='fixed'
 				space={2}
 				top={0}
