@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Center, NativeBaseProvider, extendTheme, VStack } from 'native-base'
 import { Home } from './src/Screens/Home'
 
 // Define the config
 const config = {
-	useSystemColorMode: false,
-	initialColorMode: 'auto'
+	useSystemColorMode: false
 }
 
 // extend the theme
