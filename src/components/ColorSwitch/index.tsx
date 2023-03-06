@@ -47,6 +47,7 @@ export function ColorSwitch() {
 				</HStack>
 			</Button>
 			<StatusBar
+				translucent
 				barStyle={colorMode === 'dark' ? 'light-content' : 'dark-content'}
 			></StatusBar>
 		</>

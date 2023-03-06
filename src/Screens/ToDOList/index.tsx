@@ -18,6 +18,7 @@ import React from 'react'
 import { ColorSwitch } from '../../components/ColorSwitch'
 import { LogOutButton } from '../../components/LogOutButton'
 import { ButtonProps } from '../../components/LogOutButton'
+import { MenuRight } from '../../components/MenuRight'
 
 interface TaskProps {
 	title: string
@@ -131,16 +132,22 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 	return (
 		<KeyboardAvoidingView
 			h={'100%'}
-			height={'100%'}
+			w={'100%'}
+			height={'full'}
+			width={'full'}
 			display='flex'
+			flex={1}
 			alignItems={'center'}
 		>
 			<HStack
 				safeArea
-				w={'90%'}
-				maxW={600}
+				width={'full'}
+				maxW={'2xl'}
 				alignItems='center'
+				flexDirection={'row'}
 				justifyContent={'space-between'}
+				display='flex'
+				flex={'initial'}
 				position='fixed'
 				space={2}
 				top={0}
@@ -151,6 +158,7 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 				<VStack>
 					<Text>Welcome</Text>
 					<Text fontWeight={'bold'}>{userName}!</Text>
+					<MenuRight></MenuRight>
 				</VStack>
 
 				<HStack
