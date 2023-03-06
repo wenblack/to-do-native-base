@@ -10,7 +10,8 @@ import {
 	Text,
 	Toast,
 	Divider,
-	KeyboardAvoidingView
+	KeyboardAvoidingView,
+	Center
 } from 'native-base'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
@@ -72,7 +73,7 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 			}, 2000)
 
 			return Toast.show({
-				placement: 'bottom',
+				placement: 'top',
 				_dark: {
 					style: {
 						display: 'flex',
@@ -140,26 +141,42 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 			<HStack
 				safeArea
 				width={'full'}
-				maxW={'2xl'}
 				alignItems='center'
 				flexDirection={'row'}
-				justifyContent={'space-between'}
+				justifyContent={'center'}
 				display='flex'
 				position='fixed'
 				space={2}
 				top={0}
-				borderBottomColor={'gray.400'}
-				borderBottomWidth='1'
-				py={4}
-				px={2}
+				p={4}
+				bg={'green.700'}
+				_dark={{
+					bg: 'blueGray.700'
+				}}
 			>
-				<HStack space={2}>
-					<Text>Welcome</Text>
-					<Text fontWeight={'bold'}>{userName}!</Text>
+				<Center
+					width={'full'}
+					maxW={'2xl'}
+					flexDirection='row'
+					justifyContent={'space-between'}
+				>
+					<HStack space={2}>
+						<Text
+							color={'warmGray.50'}
+						>
+							Welcome
+						</Text>
+						<Text
+							color={'warmGray.50'}
+							fontWeight={'bold'}
+						>
+							{userName}!
+						</Text>
 
-				</HStack>
+					</HStack>
 
-				<MenuRight></MenuRight>
+					<MenuRight></MenuRight>
+				</Center>
 
 			</HStack>
 
@@ -175,11 +192,12 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 					<Heading
 						size='md'
 						fontWeight='600'
-						color='coolGray.800'
+						color='green.800'
 						marginBottom={'2'}
 						_dark={{
 							color: 'warmGray.50'
 						}}
+						textTransform={'uppercase'}
 					>
 						{listName}
 					</Heading>
@@ -214,6 +232,12 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 						<IconButton
 							borderRadius='sm'
 							variant='solid'
+							background={'green.700'}
+							_dark={
+								{
+									bg: 'blueGray.600'
+								}
+							}
 							icon={
 								<Icon
 									as={Feather}

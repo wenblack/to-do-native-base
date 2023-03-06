@@ -17,7 +17,7 @@ export function MenuItem({ iconName, title, color }: ItemProps) {
             justifyContent={'space-between'}
         >
             <Icon name={iconName} size={25} color={color} />
-            <Text w={40}>{title}</Text>
+            <Text color={'green.800'} w={40}>{title}</Text>
         </HStack>
     );
 }

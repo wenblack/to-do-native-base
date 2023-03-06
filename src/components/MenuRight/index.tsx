@@ -19,25 +19,25 @@ export function MenuRight() {
 				<Menu
 					w='200'
 					rounded={'lg'}
+					marginTop={4}
 					shouldOverlapWithTrigger={shouldOverlapWithTrigger} // @ts-ignore
 					placement={'bottom right'}
-					backgroundColor={'gray.100'}
+					backgroundColor={'warmGray.50'}
 					_dark={{
-						backgroundColor: 'blueGray.700'
+						backgroundColor: 'blueGray.600'
 					}}
 					trigger={(triggerProps) => {
 						return (
 							<Button
 								alignSelf='center'
 								variant='unstyled'
-								colorScheme={'blue'}
 								{...triggerProps}
 							>
 								<MenuIcon
 									name='menu'
 									size={25}
 									color={
-										colorMode === 'dark' ? 'white' : 'black'
+										'white'
 									}
 								/>
 							</Button>
@@ -53,7 +53,7 @@ export function MenuRight() {
 							}
 							title='Change  theme'
 							color={
-								colorMode === 'dark' ? 'white' : 'rgb(75, 85, 99)'
+								colorMode === 'dark' ? 'white' : '#166534'
 							}
 						/>
 					</Menu.Item>
@@ -62,7 +62,7 @@ export function MenuRight() {
 							iconName='user'
 							title='Edit your Name'
 							color={
-								colorMode === 'dark' ? 'white' : 'rgb(75, 85, 99)'
+								colorMode === 'dark' ? 'white' : '#166534'
 							}
 						/>
 					</Menu.Item>
@@ -71,7 +71,7 @@ export function MenuRight() {
 							iconName='edit'
 							title='Rename List'
 							color={
-								colorMode === 'dark' ? 'white' : 'rgb(75, 85, 99)'
+								colorMode === 'dark' ? 'white' : '#166534'
 							}
 						/>
 					</Menu.Item>
@@ -80,7 +80,7 @@ export function MenuRight() {
 							iconName='power'
 							title='Log Out'
 							color={
-								colorMode === 'dark' ? 'white' : 'rgb(75, 85, 99)'
+								colorMode === 'dark' ? 'white' : '#166534'
 							}
 						/>
 					</Menu.Item>
