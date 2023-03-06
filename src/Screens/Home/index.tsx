@@ -26,17 +26,6 @@ export function Home() {
 	const [listName, setListName] = useState('')
 	const [userInformed, setUserInformed] = useState(false)
 
-	function setName(e: any) {
-		let name = e.target.value
-		setUserName(name)
-		console.log(userName)
-	}
-	function setList(e: any) {
-		let name = e.target.value
-		setListName(name)
-		console.log(listName)
-	}
-
 	function validateData() {
 		if (listName === '') {
 			setTimeout(() => {
@@ -230,7 +219,10 @@ export function Home() {
 
 					<Input
 						placeholder='Work tasks'
-						onChange={setList}
+						value={listName}
+						onChangeText={setListName}
+						returnKeyType='next'
+						autoComplete='birthdate-day'
 						_light={{
 							_focus: {
 								borderColor: 'green.500',
@@ -260,7 +252,10 @@ export function Home() {
 					</FormControl.Label>
 					<Input
 						placeholder='John Doe'
-						onChange={setName}
+						autoComplete='name'
+						returnKeyType='done'
+						value={userName}
+						onChangeText={setUserName}
 						_light={{
 							_focus: {
 								borderColor: 'green.500',
