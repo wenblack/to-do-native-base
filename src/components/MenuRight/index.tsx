@@ -100,7 +100,6 @@ export function MenuRight() {
 				</Menu>
 			</VStack >
 			<StatusBar
-				translucent
 				barStyle={colorMode === 'dark' ? 'light-content' : 'dark-content'}
 			></StatusBar>
 		</>

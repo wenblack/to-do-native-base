@@ -11,7 +11,8 @@ import {
 	Toast,
 	Divider,
 	KeyboardAvoidingView,
-	Center
+	Center,
+	useColorMode
 } from 'native-base'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
@@ -33,6 +34,7 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 	const instState = Array<TaskProps>
 	const [list, setList] = React.useState(instState)
 	const [inputValue, setInputValue] = React.useState('')
+	const { colorMode, toggleColorMode } = useColorMode()
 
 	const addItem = (title: string) => {
 		if (title === '') {
@@ -163,12 +165,14 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 					<HStack space={2}>
 						<Text
 							color={'warmGray.50'}
+							fontSize={'lg'}
 						>
 							Welcome
 						</Text>
 						<Text
 							color={'warmGray.50'}
 							fontWeight={'bold'}
+							fontSize={'lg'}
 						>
 							{userName}!
 						</Text>
@@ -262,9 +266,17 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 								justifyContent='space-between'
 								alignItems='center'
 								key={item.title + itemI.toString()}
+								borderColor='gray.300'
+								rounded={'lg'}
+								borderWidth='1'
+								px='2'
+								marginBottom={1}
 							>
 								<Checkbox
 									isChecked={item.isCompleted}
+									_light={{
+										background: item.isCompleted ? 'green.500' : 'transparent'
+									}}
 									onChange={() => handleStatusChange(itemI)}
 									value={item.title}
 								></Checkbox>
@@ -275,7 +287,7 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 									mx='2'
 									strikeThrough={item.isCompleted}
 									_light={{
-										color: item.isCompleted ? 'gray.400' : 'coolGray.800'
+										color: item.isCompleted ? 'green.500' : 'red.500'
 									}}
 									_dark={{
 										color: item.isCompleted ? 'gray.400' : 'coolGray.50'
@@ -291,8 +303,8 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 										<Icon
 											as={Entypo}
 											name='trash'
-											size='sm'
-											color='trueGray.400'
+											size='md'
+											color={colorMode === 'light' ? 'red.500' : 'gray.400'}
 										/>
 									}
 									onPress={() => handleDelete(itemI)}
@@ -301,9 +313,6 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 						))}
 					</VStack>
 					<Divider
-						position={'fixed'}
-						bottom={0}
-						marginBottom={'24'}
 						w='80'
 					></Divider>
 				</Box>

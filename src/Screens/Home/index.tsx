@@ -194,7 +194,16 @@ export function Home() {
 							color: 'warmGray.50'
 						}}
 					>
-						Simple TO-DO List
+						<Text
+							_light={{
+								color: 'red.500'
+							}}
+						>
+							TO
+						</Text>
+						<Text _light={{
+							color: 'green.500'
+						}}  > DO</Text>
 					</Heading>
 				</Center>
 
@@ -206,7 +215,7 @@ export function Home() {
 					<FormControl>
 						<FormControl.Label
 							_text={{
-								color: 'gray.800'
+								color: 'green.800'
 							}}
 							_dark={{
 								_text: {
@@ -240,7 +249,7 @@ export function Home() {
 					<FormControl>
 						<FormControl.Label
 							_text={{
-								color: 'gray.800'
+								color: 'green.800'
 							}}
 							_dark={{
 								_text: {
