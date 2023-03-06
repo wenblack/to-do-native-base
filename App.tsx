@@ -11,26 +11,22 @@ const config = {
 export const theme = extendTheme({ config })
 type MyThemeType = typeof theme
 declare module 'native-base' {
-	interface ICustomTheme extends MyThemeType {}
+	interface ICustomTheme extends MyThemeType { }
 }
 export default function App() {
 	return (
 		<NativeBaseProvider>
-			<Center
+			<VStack
 				_dark={{ bg: 'blueGray.900' }}
 				_light={{ bg: 'blueGray.50' }}
-				px={4}
 				flex={1}
 				width='100%'
+				height={'100%'}
 				safeArea
+				alignItems={'center'}
 			>
-				<VStack
-					space={5}
-					alignItems='center'
-				>
-					<Home></Home>
-				</VStack>
-			</Center>
+				<Home></Home>
+			</VStack>
 		</NativeBaseProvider>
 	)
 }

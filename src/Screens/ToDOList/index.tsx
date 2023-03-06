@@ -139,26 +139,24 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 			alignItems={'center'}
 		>
 			<HStack
-				safeArea
 				width={'full'}
 				w={'100%'}
 				alignItems='center'
 				flexDirection={'row'}
 				justifyContent={'center'}
 				display='flex'
-				flex={1}
 				position='fixed'
 				space={2}
 				top={0}
 				p={4}
-				bg={'green.700'}
+				background={'green.700'}
 				_dark={{
 					bg: 'blueGray.700'
 				}}
 			>
 				<Center
-					width={'full'}
-					maxW={'2xl'}
+					width={'100%'}
+					maxW={'800'}
 					flexDirection='row'
 					justifyContent={'space-between'}
 				>
@@ -185,7 +183,7 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 			<VStack
 				space={4}
 				display='flex'
-				h='100%'
+				marginTop={100}
 			>
 				<Box
 					safeArea
