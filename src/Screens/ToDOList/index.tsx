@@ -15,8 +15,6 @@ import {
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
 import React from 'react'
-import { ColorSwitch } from '../../components/ColorSwitch'
-import { LogOutButton } from '../../components/LogOutButton'
 import { ButtonProps } from '../../components/LogOutButton'
 import { MenuRight } from '../../components/MenuRight'
 
@@ -147,27 +145,22 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 				flexDirection={'row'}
 				justifyContent={'space-between'}
 				display='flex'
-				flex={'initial'}
 				position='fixed'
 				space={2}
 				top={0}
 				borderBottomColor={'gray.400'}
 				borderBottomWidth='1'
-				paddingBottom={'4'}
+				py={4}
+				px={2}
 			>
-				<VStack>
+				<HStack space={2}>
 					<Text>Welcome</Text>
 					<Text fontWeight={'bold'}>{userName}!</Text>
-					<MenuRight></MenuRight>
-				</VStack>
 
-				<HStack
-					alignItems='center'
-					space={2}
-				>
-					<ColorSwitch />
-					<LogOutButton onClick={onClick} />
 				</HStack>
+
+				<MenuRight></MenuRight>
+
 			</HStack>
 
 			<VStack
@@ -292,5 +285,6 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 				</Box>
 			</VStack>
 		</KeyboardAvoidingView>
+
 	)
 }
