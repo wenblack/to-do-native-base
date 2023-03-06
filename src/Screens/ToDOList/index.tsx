@@ -181,12 +181,11 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 			</HStack>
 
 			<VStack
+				safeArea
 				space={4}
 				display='flex'
-				marginTop={100}
 			>
 				<Box
-					safeArea
 					w={'80'}
 				>
 					<Heading
@@ -303,7 +302,8 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 					</VStack>
 					<Divider
 						position={'fixed'}
-						bottom={120}
+						bottom={0}
+						marginBottom={'24'}
 						w='80'
 					></Divider>
 				</Box>

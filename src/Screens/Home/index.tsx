@@ -166,7 +166,6 @@ export function Home() {
 		>
 			<Center height={'100%'}>
 				<HStack
-					safeArea
 					w={'100%'}
 					mr={10}
 					alignItems='center'
