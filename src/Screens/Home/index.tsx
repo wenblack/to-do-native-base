@@ -9,7 +9,8 @@ import {
 	HStack,
 	Center,
 	useColorMode,
-	Toast
+	Toast,
+	KeyboardAvoidingView
 } from 'native-base'
 import React, { useEffect, useState } from 'react'
 import { ColorSwitch } from '../../components/ColorSwitch'
@@ -17,6 +18,7 @@ import Icon from 'react-native-vector-icons/AntDesign'
 import Save from 'react-native-vector-icons/Feather'
 import { ToDOList } from '../ToDOList'
 import { ModalError } from '../../components/ModalError'
+import { Platform } from 'react-native'
 
 export function Home() {
 	const { colorMode } = useColorMode()
@@ -168,13 +170,17 @@ export function Home() {
 	}
 
 	return (
-		<>
+		<KeyboardAvoidingView
+			behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+			w={'80'}
+			h='100%'
+		>
 			<HStack
 				safeArea
 				w={'100%'}
-				maxW={'80%'}
-				marginTop={'10'}
+				mr={10}
 				alignItems='center'
+				flexDirection={'row'}
 				justifyContent={'flex-end'}
 				marginBottom={10}
 				position='fixed'
@@ -182,131 +188,121 @@ export function Home() {
 			>
 				<ColorSwitch />
 			</HStack>
-			<Box
-				safeArea
-				p='2'
-				py='8'
-				w={'80'}
-			>
-				<Center>
-					<Icon
-						size={80}
-						name='checksquare'
-						style={{
-							marginBottom: 10
-						}}
-						color={colorMode === 'light' ? '#15803D' : '#6066E5'}
-					/>
-					<Heading
-						size='md'
-						fontWeight='600'
-						color='coolGray.800'
-						_dark={{
-							color: 'warmGray.50'
-						}}
-					>
-						Simple TO-DO List
-					</Heading>
-				</Center>
-
-				<VStack
-					space={3}
-					mt='5'
-					width={'full'}
+			<Center>
+				<Icon
+					size={80}
+					name='checksquare'
+					style={{
+						marginBottom: 10
+					}}
+					color={colorMode === 'light' ? '#15803D' : '#6066E5'}
+				/>
+				<Heading
+					size='md'
+					fontWeight='600'
+					color='coolGray.800'
+					_dark={{
+						color: 'warmGray.50'
+					}}
 				>
-					<FormControl>
-						<FormControl.Label
-							_text={{
-								color: 'gray.800'
-							}}
-							_dark={{
-								_text: {
-									color: 'warmGray.200'
-								}
-							}}
-						>
-							List Name:
-						</FormControl.Label>
-						<Input
-							placeholder='Work tasks'
-							onChange={setList}
-							shadow={'2'}
-							_light={{
-								_focus: {
-									borderColor: 'green.500',
-									shadow: '0',
-									borderWidth: '1'
-								}
-							}}
-							_dark={{
-								borderColor: 'warmGray.300',
-								placeholderTextColor: '#737373',
-								color: 'white'
-							}}
-						/>
-					</FormControl>
+					Simple TO-DO List
+				</Heading>
+			</Center>
 
-					<FormControl>
-						<FormControl.Label
-							_text={{
-								color: 'gray.800'
-							}}
-							_dark={{
-								_text: {
-									color: 'warmGray.200'
-								}
-							}}
-						>
-							Your Name:
-						</FormControl.Label>
-						<Input
-							placeholder='John Doe'
-							shadow={'2'}
-							onChange={setName}
-							_light={{
-								_focus: {
-									borderColor: 'green.500',
-									shadow: '0',
-									borderWidth: '1'
-								}
-							}}
-							_dark={{
-								borderColor: 'warmGray.300',
-								placeholderTextColor: '#737373',
-								color: 'white'
-							}}
-						/>
-					</FormControl>
-
-					<Button
-						mt='8'
-						colorScheme='green'
-						_dark={{
-							bg: 'indigo.600'
+			<VStack
+				space={3}
+				mt='5'
+				width={'full'}
+			>
+				<FormControl>
+					<FormControl.Label
+						_text={{
+							color: 'gray.800'
 						}}
-						shadow={'2'}
-						onPress={validateData}
+						_dark={{
+							_text: {
+								color: 'warmGray.200'
+							}
+						}}
 					>
-						<HStack
-							alignItems={'center'}
-							justifyContent={'space-between'}
-							space={5}
+						List Name:
+					</FormControl.Label>
+
+					<Input
+						placeholder='Work tasks'
+						onChange={setList}
+						_light={{
+							_focus: {
+								borderColor: 'green.500',
+								borderWidth: '1'
+							}
+						}}
+						_dark={{
+							borderColor: 'warmGray.300',
+							placeholderTextColor: '#737373',
+							color: 'white'
+						}}
+					/>
+				</FormControl>
+
+				<FormControl>
+					<FormControl.Label
+						_text={{
+							color: 'gray.800'
+						}}
+						_dark={{
+							_text: {
+								color: 'warmGray.200'
+							}
+						}}
+					>
+						Your Name:
+					</FormControl.Label>
+					<Input
+						placeholder='John Doe'
+						onChange={setName}
+						_light={{
+							_focus: {
+								borderColor: 'green.500',
+								borderWidth: '1'
+							}
+						}}
+						_dark={{
+							borderColor: 'warmGray.300',
+							placeholderTextColor: '#737373',
+							color: 'white'
+						}}
+					/>
+				</FormControl>
+
+				<Button
+					mt='8'
+					colorScheme='green'
+					_dark={{
+						bg: 'indigo.600'
+					}}
+					shadow={'2'}
+					onPress={validateData}
+				>
+					<HStack
+						alignItems={'center'}
+						justifyContent={'space-between'}
+						space={5}
+					>
+						<Text
+							fontSize={'lg'}
+							color={'white'}
 						>
-							<Text
-								fontSize={'lg'}
-								color={'white'}
-							>
-								Save List
-							</Text>
-							<Save
-								name='save'
-								size={20}
-								color={'white'}
-							/>
-						</HStack>
-					</Button>
-				</VStack>
-			</Box>
-		</>
+							Save List
+						</Text>
+						<Save
+							name='save'
+							size={20}
+							color={'white'}
+						/>
+					</HStack>
+				</Button>
+			</VStack>
+		</KeyboardAvoidingView>
 	)
 }
