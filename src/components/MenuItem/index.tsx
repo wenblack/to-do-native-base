@@ -1,4 +1,4 @@
-import { HStack, Text } from "native-base";
+import { Divider, HStack, Text } from "native-base";
 import { ColorType } from "native-base/lib/typescript/components/types";
 import { ColorValue } from "react-native";
 import Icon from 'react-native-vector-icons/Feather'
@@ -17,9 +17,13 @@ export function MenuItem({ iconName, title, color, textColor }: ItemProps) {
             alignItems='center'
             textAlign={'justify'}
             justifyContent={'space-between'}
+            borderBottomColor='gray.300'
+            borderBottomWidth={1}
+            paddingBottom={2}
         >
             <Icon name={iconName} size={25} color={color} />
             <Text color={textColor} w={40}>{title}</Text>
+
         </HStack>
     );
 }

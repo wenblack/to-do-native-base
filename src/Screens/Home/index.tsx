@@ -1,6 +1,5 @@
 import {
 	Button,
-	Box,
 	Heading,
 	VStack,
 	FormControl,
@@ -10,7 +9,8 @@ import {
 	Center,
 	useColorMode,
 	Toast,
-	KeyboardAvoidingView
+	KeyboardAvoidingView,
+	Divider
 } from 'native-base'
 import React, { useEffect, useState } from 'react'
 import { ColorSwitch } from '../../components/ColorSwitch'
@@ -19,6 +19,7 @@ import Save from 'react-native-vector-icons/Feather'
 import { ToDOList } from '../ToDOList'
 import { ModalError } from '../../components/ModalError'
 import { Platform } from 'react-native'
+import { Footer } from '../../components/Footer'
 
 export function Home() {
 	const { colorMode } = useColorMode()
@@ -178,33 +179,42 @@ export function Home() {
 					<ColorSwitch />
 				</HStack>
 				<Center>
-					<Icon
-						size={80}
-						name='checksquare'
-						style={{
-							marginBottom: 10
-						}}
-						color={colorMode === 'light' ? '#15803D' : '#6066E5'}
-					/>
-					<Heading
-						size='md'
-						fontWeight='600'
-						color='coolGray.800'
-						_dark={{
-							color: 'warmGray.50'
-						}}
+					<HStack
+						space={4}
+						display='flex'
+						justifyContent='center'
+						alignItems={'center'}
+						height={'100%'}
+						flexDirection={'row'}
 					>
-						<Text
-							_light={{
-								color: 'red.500'
+						<Icon
+							size={40}
+							name='checksquare'
+							color={colorMode === 'light' ? '#15803D' : '#6066E5'}
+						/>
+						<Heading
+							size='2xl'
+							fontWeight='600'
+							color='coolGray.800'
+							_dark={{
+								color: 'warmGray.50'
 							}}
 						>
-							TO
-						</Text>
-						<Text _light={{
-							color: 'green.500'
-						}}  > DO</Text>
-					</Heading>
+							<Text
+								textDecorationLine={'line-through'}
+								_light={{
+									color: 'green.500'
+								}}
+							>
+								TO
+							</Text>
+							<Text
+								textDecorationLine={'line-through'}
+								_light={{
+									color: 'green.500'
+								}}  > DO</Text>
+						</Heading>
+					</HStack>
 				</Center>
 
 				<VStack
@@ -212,7 +222,9 @@ export function Home() {
 					mt='5'
 					width={'full'}
 				>
-					<FormControl>
+					<FormControl
+						mt={5}
+					>
 						<FormControl.Label
 							_text={{
 								color: 'green.800'
@@ -222,12 +234,13 @@ export function Home() {
 									color: 'warmGray.200'
 								}
 							}}
+							display='none'
 						>
 							List Name:
 						</FormControl.Label>
 
 						<Input
-							placeholder='Work tasks'
+							placeholder='Your List Name'
 							value={listName}
 							onChangeText={setListName}
 							returnKeyType='next'
@@ -256,11 +269,12 @@ export function Home() {
 									color: 'warmGray.200'
 								}
 							}}
+							display='none'
 						>
 							Your Name:
 						</FormControl.Label>
 						<Input
-							placeholder='John Doe'
+							placeholder='Your Name'
 							autoComplete='name'
 							returnKeyType='done'
 							value={userName}
@@ -306,7 +320,20 @@ export function Home() {
 							/>
 						</HStack>
 					</Button>
+
+
+
 				</VStack>
+				<VStack
+					position={'fixed'}
+					bottom={0}
+					w={80}
+					marginBottom={10}
+				>
+					<Divider></Divider>
+					<Footer ></Footer>
+				</VStack>
+
 			</Center>
 		</KeyboardAvoidingView>
 	)
