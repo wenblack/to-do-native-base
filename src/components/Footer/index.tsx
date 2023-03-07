@@ -16,7 +16,7 @@ export function Footer() {
             >
                 <IconButton
                     _light={{
-                        backgroundColor: 'trasparent'
+                        background: 'trasparent'
                     }}
                     _dark={{
                         background: 'indigo.600'
@@ -48,7 +48,7 @@ export function Footer() {
                 />
                 <IconButton
                     _light={{
-                        backgroundColor: 'transparent'
+                        background: 'transparent'
                     }}
                     _dark={{
                         background: 'indigo.600'

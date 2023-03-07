@@ -181,11 +181,9 @@ export function Home() {
 				<Center>
 					<HStack
 						space={4}
-						display='flex'
 						justifyContent='center'
 						alignItems={'center'}
-						height={'100%'}
-						flexDirection={'row'}
+						paddingBottom={8}
 					>
 						<Icon
 							size={40}
@@ -295,6 +293,7 @@ export function Home() {
 
 					<Button
 						mt='8'
+						mb='16'
 						colorScheme='green'
 						_dark={{
 							bg: 'indigo.600'
@@ -324,17 +323,10 @@ export function Home() {
 
 
 				</VStack>
-				<VStack
-					position={'fixed'}
-					bottom={0}
-					w={80}
-					marginBottom={10}
-				>
-					<Divider></Divider>
-					<Footer ></Footer>
-				</VStack>
+				<Divider ></Divider>
+				<Footer ></Footer>
 
 			</Center>
-		</KeyboardAvoidingView>
+		</KeyboardAvoidingView >
 	)
 }
