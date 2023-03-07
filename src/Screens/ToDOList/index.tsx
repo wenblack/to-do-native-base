@@ -19,6 +19,7 @@ import Feather from 'react-native-vector-icons/Feather'
 import React from 'react'
 import { ButtonProps } from '../../components/LogOutButton'
 import { MenuRight } from '../../components/MenuRight'
+import Logo from 'react-native-vector-icons/AntDesign'
 
 interface TaskProps {
 	title: string
@@ -165,17 +166,15 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 					<HStack space={2}>
 						<Text
 							color={'warmGray.50'}
-							fontSize={'lg'}
-						>
-							Welcome
-						</Text>
-						<Text
-							color={'warmGray.50'}
 							fontWeight={'bold'}
 							fontSize={'lg'}
-						>
-							{userName}!
+						>TO-DO
 						</Text>
+						<Logo
+							size={25}
+							name='checksquare'
+							color={'white'}
+						/>
 
 					</HStack>
 

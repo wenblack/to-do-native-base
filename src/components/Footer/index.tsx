@@ -9,56 +9,43 @@ export function Footer() {
             <Text
                 marginTop={1}
                 _dark={{ color: 'white' }}
-                color={'muted.700'}>Made with 💗 by Wender</Text>
+                color={'muted.600'}>Made with 💗 by Wender</Text>
             <HStack
                 space={4}
                 marginTop={2}
             >
                 <IconButton
-                    _light={{
-                        background: 'trasparent'
-                    }}
-                    _dark={{
-                        background: 'indigo.600'
-                    }}
+                    background={'transparent'}
                     icon={
                         <MaterialIcons
                             name="linkedin"
                             size={30}
                             color={
-                                colorMode === 'light' ? '#404040' : 'white'
+                                colorMode === 'light' ? '#737373' : '#d4d4d4'
                             }
                         />
                     }
                 />
                 <IconButton
-                    _light={{ backgroundColor: 'transparent' }}
-                    _dark={{
-                        background: 'indigo.600'
-                    }}
+                    background={'transparent'}
                     icon={
                         <MaterialIcons
                             name="github"
                             size={30}
                             color={
-                                colorMode === 'light' ? '#404040' : 'white'
+                                colorMode === 'light' ? '#737373' : '#d4d4d4'
                             }
                         />
                     }
                 />
                 <IconButton
-                    _light={{
-                        background: 'transparent'
-                    }}
-                    _dark={{
-                        background: 'indigo.600'
-                    }}
+                    background={'transparent'}
                     icon={
                         <MaterialIcons
                             name="react"
                             size={30}
                             color={
-                                colorMode === 'light' ? '#404040' : 'white'
+                                colorMode === 'light' ? '#737373' : '#d4d4d4'
                             }
                         />
                     }
