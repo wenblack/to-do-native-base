@@ -20,8 +20,9 @@ import { ToDOList } from '../ToDOList'
 import { ModalError } from '../../components/ModalError'
 import { Platform } from 'react-native'
 import { Footer } from '../../components/Footer'
+import { fontProps } from '../../util/globalInterface'
 
-export function Home() {
+export function Home({ font }: fontProps) {
 	const { colorMode } = useColorMode()
 	const [userName, setUserName] = useState('')
 	const [listName, setListName] = useState('')
@@ -98,12 +99,7 @@ export function Home() {
 			Toast.show({
 				placement: 'top',
 				render: () => {
-					return (
-						<ModalError
-							list={listName}
-							user={userName}
-						/>
-					)
+					return <ModalError />
 				}
 			})
 		}
@@ -147,7 +143,7 @@ export function Home() {
 		})
 	}
 
-	useEffect(() => { }, [userInformed])
+	useEffect(() => {}, [userInformed])
 
 	if (userInformed) {
 		return (
@@ -167,8 +163,10 @@ export function Home() {
 		>
 			<Center height={'100%'}>
 				<HStack
-					w={'100%'}
+					w={'lg'}
+					maxWidth={'full'}
 					mr={10}
+					mt={5}
 					alignItems='center'
 					flexDirection={'row'}
 					justifyContent={'flex-end'}
@@ -192,17 +190,19 @@ export function Home() {
 						/>
 						<Heading
 							size='2xl'
-							fontWeight='600'
+							fontWeight='700'
 							color='coolGray.800'
 							_dark={{
 								color: 'warmGray.50'
 							}}
+							fontFamily={font}
 						>
 							<Text
 								textDecorationLine={'line-through'}
 								_light={{
 									color: 'green.500'
 								}}
+								//fontFamily={font}
 							>
 								TO
 							</Text>
@@ -210,7 +210,12 @@ export function Home() {
 								textDecorationLine={'line-through'}
 								_light={{
 									color: 'green.500'
-								}}  > DO</Text>
+								}}
+								//fontFamily={font}
+							>
+								{' '}
+								DO
+							</Text>
 						</Heading>
 					</HStack>
 				</Center>
@@ -220,9 +225,7 @@ export function Home() {
 					mt='5'
 					width={'full'}
 				>
-					<FormControl
-						mt={5}
-					>
+					<FormControl mt={5}>
 						<FormControl.Label
 							_text={{
 								color: 'green.800'
@@ -233,11 +236,13 @@ export function Home() {
 								}
 							}}
 							display='none'
+							fontFamily={font}
 						>
 							List Name:
 						</FormControl.Label>
 
 						<Input
+							fontFamily={font}
 							placeholder='Your List Name'
 							value={listName}
 							onChangeText={setListName}
@@ -259,6 +264,7 @@ export function Home() {
 
 					<FormControl>
 						<FormControl.Label
+							fontFamily={font}
 							_text={{
 								color: 'green.800'
 							}}
@@ -272,6 +278,7 @@ export function Home() {
 							Your Name:
 						</FormControl.Label>
 						<Input
+							fontFamily={font}
 							placeholder='Your Name'
 							autoComplete='name'
 							returnKeyType='done'
@@ -292,6 +299,7 @@ export function Home() {
 					</FormControl>
 
 					<Button
+						fontFamily={font}
 						mt='8'
 						mb='16'
 						colorScheme='green'
@@ -309,6 +317,8 @@ export function Home() {
 							<Text
 								fontSize={'lg'}
 								color={'white'}
+								fontFamily={font}
+								fontWeight='bold'
 							>
 								Save List
 							</Text>
@@ -319,14 +329,10 @@ export function Home() {
 							/>
 						</HStack>
 					</Button>
-
-
-
 				</VStack>
-				<Divider ></Divider>
-				<Footer ></Footer>
-
+				<Divider></Divider>
+				<Footer font={font}></Footer>
 			</Center>
-		</KeyboardAvoidingView >
+		</KeyboardAvoidingView>
 	)
 }

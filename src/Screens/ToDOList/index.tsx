@@ -140,6 +140,9 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 			display='flex'
 			flex={1}
 			alignItems={'center'}
+			_web={{
+				marginTop: '24'
+			}}
 		>
 			<HStack
 				width={'full'}
@@ -168,19 +171,18 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 							color={'warmGray.50'}
 							fontWeight={'bold'}
 							fontSize={'lg'}
-						>TO-DO
+						>
+							TO-DO
 						</Text>
 						<Logo
 							size={25}
 							name='checksquare'
 							color={'white'}
 						/>
-
 					</HStack>
 
 					<MenuRight></MenuRight>
 				</Center>
-
 			</HStack>
 
 			<VStack
@@ -188,9 +190,7 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 				space={4}
 				display='flex'
 			>
-				<Box
-					w={'80'}
-				>
+				<Box w={'80'}>
 					<Heading
 						size='md'
 						fontWeight='600'
@@ -217,7 +217,6 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 								addItem(inputValue)
 								setInputValue('')
 							}}
-							shadow={'2'}
 							_light={{
 								_focus: {
 									borderColor: 'green.500',
@@ -235,11 +234,9 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 							borderRadius='sm'
 							variant='solid'
 							background={'green.700'}
-							_dark={
-								{
-									bg: 'blueGray.600'
-								}
-							}
+							_dark={{
+								bg: 'blueGray.600'
+							}}
 							icon={
 								<Icon
 									as={Feather}
@@ -311,12 +308,9 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 							</HStack>
 						))}
 					</VStack>
-					<Divider
-						w='80'
-					></Divider>
+					<Divider w='80'></Divider>
 				</Box>
 			</VStack>
 		</KeyboardAvoidingView>
-
 	)
 }
