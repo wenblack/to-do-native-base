@@ -20,18 +20,19 @@ import React from 'react'
 import { ButtonProps } from '../../components/LogOutButton'
 import { MenuRight } from '../../components/MenuRight'
 import Logo from 'react-native-vector-icons/AntDesign'
+import { MenuItemProps } from '../../components/MenuRight'
 
 interface TaskProps {
 	title: string
 	isCompleted: boolean
 }
 
-interface ListProps extends ButtonProps {
+interface ListProps extends ButtonProps, MenuItemProps {
 	listName: string
 	userName: string
 }
 
-export function ToDOList({ onClick, listName, userName }: ListProps) {
+export function ToDOList({ onClick, listName, userName, editListFunction, editNameFunction, logOutFunction }: ListProps) {
 	const instState = Array<TaskProps>
 	const [list, setList] = React.useState(instState)
 	const [inputValue, setInputValue] = React.useState('')
@@ -171,6 +172,7 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 							color={'warmGray.50'}
 							fontWeight={'bold'}
 							fontSize={'lg'}
+							fontFamily='Inter_800ExtraBold'
 						>
 							TO-DO
 						</Text>
@@ -181,7 +183,11 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 						/>
 					</HStack>
 
-					<MenuRight></MenuRight>
+					<MenuRight
+						editNameFunction={editNameFunction}
+						logOutFunction={logOutFunction}
+						editListFunction={editListFunction}
+					></MenuRight>
 				</Center>
 			</HStack>
 
@@ -193,7 +199,8 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 				<Box w={'80'}>
 					<Heading
 						size='md'
-						fontWeight='600'
+						fontWeight='800'
+						fontFamily={'Inter_800ExtraBold'}
 						color='green.800'
 						marginBottom={'2'}
 						_dark={{
@@ -266,6 +273,7 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 								rounded={'lg'}
 								borderWidth='1'
 								px='2'
+								py={2}
 								marginBottom={1}
 							>
 								<Checkbox
@@ -275,6 +283,7 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 									}}
 									onChange={() => handleStatusChange(itemI)}
 									value={item.title}
+									ml={2}
 								></Checkbox>
 								<Text
 									width='100%'
@@ -308,7 +317,6 @@ export function ToDOList({ onClick, listName, userName }: ListProps) {
 							</HStack>
 						))}
 					</VStack>
-					<Divider w='80'></Divider>
 				</Box>
 			</VStack>
 		</KeyboardAvoidingView>

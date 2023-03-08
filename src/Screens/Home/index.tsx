@@ -151,6 +151,9 @@ export function Home({ font, fontTitle }: fontProps) {
 				onClick={logOut}
 				listName={listName}
 				userName={userName}
+				logOutFunction={logOut}
+				editListFunction={logOut}
+				editNameFunction={logOut}
 			/>
 		)
 	}

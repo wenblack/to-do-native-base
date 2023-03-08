@@ -2,8 +2,9 @@ import { Divider, HStack, Text } from 'native-base'
 import { ColorType } from 'native-base/lib/typescript/components/types'
 import { ColorValue } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
+import { fontProps } from '../../util/globalInterface'
 
-interface ItemProps {
+interface ItemProps extends fontProps {
 	iconName: string
 	title: string
 	color: ColorValue
@@ -16,7 +17,7 @@ export function MenuItem({
 	title,
 	color,
 	textColor,
-	borderSize
+	font
 }: ItemProps) {
 	return (
 		<HStack
@@ -35,6 +36,7 @@ export function MenuItem({
 			<Text
 				color={textColor}
 				w={40}
+				fontFamily={font}
 			>
 				{title}
 			</Text>
