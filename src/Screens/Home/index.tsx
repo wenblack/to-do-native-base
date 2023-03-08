@@ -246,6 +246,7 @@ export function Home({ font, fontTitle }: fontProps) {
 
 						<Input
 							fontFamily={font}
+							fontSize='md'
 							placeholder='Your List Name'
 							value={listName}
 							onChangeText={setListName}
@@ -282,6 +283,7 @@ export function Home({ font, fontTitle }: fontProps) {
 						</FormControl.Label>
 						<Input
 							fontFamily={font}
+							fontSize='md'
 							placeholder='Your Name'
 							autoComplete='name'
 							returnKeyType='done'

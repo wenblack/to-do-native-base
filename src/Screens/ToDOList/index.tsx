@@ -219,6 +219,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 							flex={1}
 							onChangeText={(v) => setInputValue(v)}
 							value={inputValue}
+							fontSize='md'
 							placeholder='Add Task'
 							onSubmitEditing={() => {
 								addItem(inputValue)
@@ -262,6 +263,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 						alignItems='center'
 						height={'full'}
 						px={2}
+						mt={5}
 					>
 						{list.map((item, itemI) => (
 							<HStack
@@ -269,15 +271,29 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 								justifyContent='space-between'
 								alignItems='center'
 								key={item.title + itemI.toString()}
-								borderColor='gray.300'
+								borderColor={item.isCompleted ? 'green.500' : 'red.500'}
+								_light={{
+									bg: item.isCompleted ? 'green.100' : 'red.100'
+								}}
+
 								rounded={'lg'}
-								borderWidth='1'
+								_dark={{
+									bg: 'transparent',
+									borderColor: item.isCompleted ? 'primary.400' : 'warmGray.300'
+								}}
+
+								borderWidth='2'
 								px='2'
 								py={2}
 								marginBottom={1}
 							>
 								<Checkbox
 									isChecked={item.isCompleted}
+									_dark={{
+										borderColor: item.isCompleted ? 'red.400' : 'warmGray.300',
+										backgroundColor: item.isCompleted ? 'primary.400' : 'transparent'
+									}}
+									borderColor={item.isCompleted ? 'green.500' : 'red.500'}
 									_light={{
 										background: item.isCompleted ? 'green.500' : 'transparent'
 									}}
@@ -290,12 +306,14 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 									flexShrink={1}
 									textAlign='left'
 									mx='2'
+									fontWeight={'700'}
+									fontSize='md'
 									strikeThrough={item.isCompleted}
 									_light={{
 										color: item.isCompleted ? 'green.500' : 'red.500'
 									}}
 									_dark={{
-										color: item.isCompleted ? 'gray.400' : 'coolGray.50'
+										color: item.isCompleted ? 'primary.400' : 'warmGray.300'
 									}}
 									onPress={() => handleStatusChange(itemI)}
 								>
@@ -309,7 +327,10 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 											as={Entypo}
 											name='trash'
 											size='md'
-											color={colorMode === 'light' ? 'red.500' : 'gray.400'}
+											_dark={{
+												color: item.isCompleted ? 'primary.400' : 'warmGray.300'
+											}}
+											color={item.isCompleted ? 'green.500' : 'red.500'}
 										/>
 									}
 									onPress={() => handleDelete(itemI)}

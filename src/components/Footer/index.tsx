@@ -12,6 +12,7 @@ export function Footer({ font }: fontProps) {
 				_dark={{ color: '#d4d4d4' }}
 				color={'muted.600'}
 				fontFamily={font}
+				fontSize='md'
 			>
 				Made with 💗 by Wender
 			</Text>

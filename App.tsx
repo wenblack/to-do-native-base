@@ -83,7 +83,7 @@ export default function App() {
 				alignItems={'center'}
 			>
 				<Home
-					font='Inter_400Regular'
+					font='Inter_500Medium'
 					fontTitle='Inter_700Bold'
 				/>
 
