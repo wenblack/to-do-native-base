@@ -1,15 +1,15 @@
-import React from 'react'
-import { NativeBaseProvider, extendTheme, VStack, Text } from 'native-base'
-import { Home } from './src/Screens/Home'
-import * as Font from 'expo-font'
+import React from 'react';
+import { NativeBaseProvider, extendTheme, VStack, Text } from 'native-base';
+import { Home } from './src/Screens/Home';
 import {
 	useFonts,
 	Inter_900Black,
 	Inter_400Regular,
 	Inter_700Bold,
-	Inter_800ExtraBold
-} from '@expo-google-fonts/inter'
-import { LoadingModal } from './src/components/LoadingModal'
+	Inter_800ExtraBold,
+	Inter_500Medium
+} from '@expo-google-fonts/inter';
+import { LoadingModal } from './src/components/LoadingModal';
 
 // Define the config
 const config = {
@@ -22,6 +22,9 @@ const fontConfig = {
 		400: {
 			normal: 'Inter_400Regular'
 		},
+		500: {
+			normal: 'Inter_500Medium'
+		},
 		700: {
 			normal: 'Inter_700Bold'
 		},
@@ -30,8 +33,14 @@ const fontConfig = {
 		},
 		900: {
 			normal: 'Inter_900Black'
-		}
-	}
+		},
+		Inter_900Black: 'Inter_900Black',
+		Inter_400Regular: 'Inter_400Regular',
+		Inter_700Bold: 'Inter_700Bold',
+		Inter_800ExtraBold: 'Inter_800ExtraBold',
+		Inter_500Medium: 'Inter_500Medium'
+	},
+
 }
 
 const fonts = {
@@ -39,24 +48,27 @@ const fonts = {
 	body: 'Inter',
 	mono: 'Inter'
 }
-// extend the theme
+// Custom theme
 export const theme = extendTheme({ config, fontConfig, fonts })
 type MyThemeType = typeof theme
 declare module 'native-base' {
-	interface ICustomTheme extends MyThemeType {}
+	interface ICustomTheme extends MyThemeType { }
 }
 export default function App() {
 	let [fontsLoaded] = useFonts({
 		Inter_900Black,
 		Inter_400Regular,
 		Inter_700Bold,
-		Inter_800ExtraBold
+		Inter_800ExtraBold,
+		Inter_500Medium
 	})
 
 	if (!fontsLoaded) {
 		return (
 			<NativeBaseProvider theme={theme}>
-				<LoadingModal font={'heading'}></LoadingModal>
+				<LoadingModal
+					fontTitle='Inter_700Bold'
+				/>
 			</NativeBaseProvider>
 		)
 	}
@@ -70,7 +82,11 @@ export default function App() {
 				height={'100%'}
 				alignItems={'center'}
 			>
-				<Home font={'body'} />
+				<Home
+					font='Inter_400Regular'
+					fontTitle='Inter_700Bold'
+				/>
+
 			</VStack>
 		</NativeBaseProvider>
 	)

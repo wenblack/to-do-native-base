@@ -1,7 +1,7 @@
-import { Center, Spinner, Modal, Text, HStack } from 'native-base'
+import { Center, Spinner, Modal, Text, HStack, VStack } from 'native-base'
 import { fontProps } from '../../util/globalInterface'
 
-export function LoadingModal({ font }: fontProps) {
+export function LoadingModal({ fontTitle }: fontProps) {
 	return (
 		<Modal
 			isOpen={true}
@@ -21,14 +21,13 @@ export function LoadingModal({ font }: fontProps) {
 			<Modal.Content>
 				<Modal.Body marginBottom={5}>
 					<Center>
-						<HStack
+						<VStack
 							space={2}
 							alignItems='center'
 							justifyContent={'center'}
 						>
 							<Text
-								fontWeight={'bold'}
-								fontFamily={font}
+								fontFamily={fontTitle}
 							>
 								Loading...
 							</Text>
@@ -36,7 +35,7 @@ export function LoadingModal({ font }: fontProps) {
 								marginTop={2}
 								size={'sm'}
 							/>
-						</HStack>
+						</VStack>
 					</Center>
 				</Modal.Body>
 			</Modal.Content>

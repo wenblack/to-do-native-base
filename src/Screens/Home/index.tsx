@@ -22,7 +22,7 @@ import { Platform } from 'react-native'
 import { Footer } from '../../components/Footer'
 import { fontProps } from '../../util/globalInterface'
 
-export function Home({ font }: fontProps) {
+export function Home({ font, fontTitle }: fontProps) {
 	const { colorMode } = useColorMode()
 	const [userName, setUserName] = useState('')
 	const [listName, setListName] = useState('')
@@ -143,7 +143,7 @@ export function Home({ font }: fontProps) {
 		})
 	}
 
-	useEffect(() => {}, [userInformed])
+	useEffect(() => { }, [userInformed])
 
 	if (userInformed) {
 		return (
@@ -195,14 +195,14 @@ export function Home({ font }: fontProps) {
 							_dark={{
 								color: 'warmGray.50'
 							}}
-							fontFamily={font}
+							fontFamily={fontTitle}
 						>
 							<Text
 								textDecorationLine={'line-through'}
 								_light={{
 									color: 'green.500'
 								}}
-								//fontFamily={font}
+								fontFamily={fontTitle}
 							>
 								TO
 							</Text>
@@ -211,7 +211,7 @@ export function Home({ font }: fontProps) {
 								_light={{
 									color: 'green.500'
 								}}
-								//fontFamily={font}
+								fontFamily={fontTitle}
 							>
 								{' '}
 								DO
@@ -299,7 +299,7 @@ export function Home({ font }: fontProps) {
 					</FormControl>
 
 					<Button
-						fontFamily={font}
+						fontFamily={fontTitle}
 						mt='8'
 						mb='16'
 						colorScheme='green'
@@ -317,8 +317,8 @@ export function Home({ font }: fontProps) {
 							<Text
 								fontSize={'lg'}
 								color={'white'}
-								fontFamily={font}
 								fontWeight='bold'
+								fontFamily={fontTitle}
 							>
 								Save List
 							</Text>
