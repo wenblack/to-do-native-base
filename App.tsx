@@ -1,6 +1,7 @@
 import React from 'react'
 import { NativeBaseProvider, extendTheme, VStack, Text } from 'native-base'
 import { Home } from './src/Screens/Home'
+import * as Font from 'expo-font'
 import {
 	useFonts,
 	Inter_900Black,
