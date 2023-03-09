@@ -263,7 +263,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 						alignItems='center'
 						height={'full'}
 						px={2}
-						mt={5}
+						mt={2}
 					>
 						{list.map((item, itemI) => (
 							<HStack
@@ -331,9 +331,10 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 												color: item.isCompleted ? 'primary.400' : 'warmGray.300'
 											}}
 											color={item.isCompleted ? 'green.500' : 'red.500'}
+											onPress={() => handleDelete(itemI)}
 										/>
 									}
-									onPress={() => handleDelete(itemI)}
+									onPressIn={() => handleDelete(itemI)}
 								/>
 							</HStack>
 						))}
