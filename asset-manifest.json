@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.js": "/to-do-native-base/static/js/main.3fa02909.js",
+    "static/js/792.6591caef.js": "/to-do-native-base/static/js/792.6591caef.js",
+    "static/media/MaterialCommunityIcons.ttf": "/to-do-native-base/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
+    "static/media/Inter_800ExtraBold.ttf": "/to-do-native-base/static/media/Inter_800ExtraBold.e4a4cb7133001f282a15.ttf",
+    "static/media/Inter_900Black.ttf": "/to-do-native-base/static/media/Inter_900Black.143c28420846d45c5834.ttf",
+    "static/media/Inter_700Bold.ttf": "/to-do-native-base/static/media/Inter_700Bold.88fa7ae373b07b41ecce.ttf",
+    "static/media/Inter_600SemiBold.ttf": "/to-do-native-base/static/media/Inter_600SemiBold.4d56bb21f2399db8ad48.ttf",
+    "static/media/Inter_500Medium.ttf": "/to-do-native-base/static/media/Inter_500Medium.6dcbc9bed1ec438907ee.ttf",
+    "static/media/Inter_200ExtraLight.ttf": "/to-do-native-base/static/media/Inter_200ExtraLight.1815b9a8a67debdb3966.ttf",
+    "static/media/Inter_100Thin.ttf": "/to-do-native-base/static/media/Inter_100Thin.f341ca512063c66296d1.ttf",
+    "static/media/Inter_300Light.ttf": "/to-do-native-base/static/media/Inter_300Light.eec8664621fec98efb37.ttf",
+    "static/media/Inter_400Regular.ttf": "/to-do-native-base/static/media/Inter_400Regular.e89cb19905e7db5591b0.ttf",
+    "static/media/Ionicons.ttf": "/to-do-native-base/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
+    "static/media/AntDesign.ttf": "/to-do-native-base/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
+    "static/media/Entypo.ttf": "/to-do-native-base/static/media/Entypo.fc6169344c041cffcdae.ttf",
+    "static/media/Feather.ttf": "/to-do-native-base/static/media/Feather.0f5d9cede2e831f3fc80.ttf",
+    "favicon.ico": "/to-do-native-base/favicon.ico",
+    "index.html": "/to-do-native-base/index.html",
+    "favicon-32.png": "/to-do-native-base/favicon-32.png",
+    "favicon-16.png": "/to-do-native-base/favicon-16.png",
+    "manifest.json": "/to-do-native-base/manifest.json",
+    "serve.json": "/to-do-native-base/serve.json",
+    "main.3fa02909.js.map": "/to-do-native-base/static/js/main.3fa02909.js.map",
+    "792.6591caef.js.map": "/to-do-native-base/static/js/792.6591caef.js.map"
+  },
+  "entrypoints": [
+    "static/js/792.6591caef.js",
+    "static/js/main.3fa02909.js"
+  ]
+}
