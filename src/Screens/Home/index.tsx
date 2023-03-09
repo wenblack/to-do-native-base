@@ -15,7 +15,6 @@ import {
 import React, { useEffect, useState } from 'react'
 import { ColorSwitch } from '../../components/ColorSwitch'
 import Icon from 'react-native-vector-icons/AntDesign'
-import Save from 'react-native-vector-icons/Feather'
 import { ToDOList } from '../ToDOList'
 import { ModalError } from '../../components/ModalError'
 import { Platform } from 'react-native'
@@ -188,7 +187,7 @@ export function Home({ font, fontTitle }: fontProps) {
 					<Icon
 						size={40}
 						name='checksquare'
-						color={colorMode === 'light' ? '#15803D' : '#6066E5'}
+						color={colorMode === 'light' ? '#15803D' : '#0f172a'}
 					/>
 					<Heading
 						size='2xl'
@@ -202,7 +201,7 @@ export function Home({ font, fontTitle }: fontProps) {
 						<Text
 							textDecorationLine={'line-through'}
 							_light={{
-								color: 'green.500'
+								color: 'green.700'
 							}}
 							fontFamily={fontTitle}
 						>
@@ -211,7 +210,7 @@ export function Home({ font, fontTitle }: fontProps) {
 						<Text
 							textDecorationLine={'line-through'}
 							_light={{
-								color: 'green.500'
+								color: 'green.700'
 							}}
 							fontFamily={fontTitle}
 						>
@@ -324,13 +323,8 @@ export function Home({ font, fontTitle }: fontProps) {
 								fontWeight='bold'
 								fontFamily={fontTitle}
 							>
-								Save List
+								Save
 							</Text>
-							<Save
-								name='save'
-								size={20}
-								color={'white'}
-							/>
 						</HStack>
 					</Button>
 				</VStack>

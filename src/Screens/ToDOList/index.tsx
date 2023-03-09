@@ -169,7 +169,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 				>
 					<HStack space={2}>
 						<Text
-							color={'warmGray.50'}
+							color={colorMode === 'light' ? 'white' : '#22d3ee'}
 							fontWeight={'bold'}
 							fontSize={'lg'}
 							fontFamily='Inter_800ExtraBold'
@@ -179,7 +179,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 						<Logo
 							size={25}
 							name='checksquare'
-							color={'white'}
+							color={colorMode === 'light' ? 'white' : '#22d3ee'}
 						/>
 					</HStack>
 
