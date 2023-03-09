@@ -168,64 +168,63 @@ export function Home({ font, fontTitle }: fontProps) {
 				<HStack
 					w={'lg'}
 					maxWidth={'full'}
-					mr={10}
+					mr={5}
 					mt={5}
 					alignItems='center'
 					flexDirection={'row'}
 					justifyContent={'flex-end'}
-					marginBottom={10}
 					position='fixed'
 					top={0}
 				>
 					<ColorSwitch />
 				</HStack>
-				<Center>
-					<HStack
-						space={4}
-						justifyContent='center'
-						alignItems={'center'}
-						paddingBottom={8}
+
+				<HStack
+					w={80}
+					space={3}
+					justifyContent='flex-start'
+					alignItems={'center'}
+				>
+					<Icon
+						size={40}
+						name='checksquare'
+						color={colorMode === 'light' ? '#15803D' : '#6066E5'}
+					/>
+					<Heading
+						size='2xl'
+						fontWeight='700'
+						color='coolGray.800'
+						_dark={{
+							color: 'warmGray.50'
+						}}
+						fontFamily={fontTitle}
 					>
-						<Icon
-							size={40}
-							name='checksquare'
-							color={colorMode === 'light' ? '#15803D' : '#6066E5'}
-						/>
-						<Heading
-							size='2xl'
-							fontWeight='700'
-							color='coolGray.800'
-							_dark={{
-								color: 'warmGray.50'
+						<Text
+							textDecorationLine={'line-through'}
+							_light={{
+								color: 'green.500'
 							}}
 							fontFamily={fontTitle}
 						>
-							<Text
-								textDecorationLine={'line-through'}
-								_light={{
-									color: 'green.500'
-								}}
-								fontFamily={fontTitle}
-							>
-								TO
-							</Text>
-							<Text
-								textDecorationLine={'line-through'}
-								_light={{
-									color: 'green.500'
-								}}
-								fontFamily={fontTitle}
-							>
-								{' '}
-								DO
-							</Text>
-						</Heading>
-					</HStack>
-				</Center>
+							TO
+						</Text>
+						<Text
+							textDecorationLine={'line-through'}
+							_light={{
+								color: 'green.500'
+							}}
+							fontFamily={fontTitle}
+						>
+							{' '}
+							DO
+						</Text>
+					</Heading>
+				</HStack>
+
 
 				<VStack
 					space={3}
-					mt='5'
+					mt='4'
 					width={'full'}
 				>
 					<FormControl mt={5}>
@@ -305,7 +304,7 @@ export function Home({ font, fontTitle }: fontProps) {
 
 					<Button
 						fontFamily={fontTitle}
-						mt='8'
+						mt='4'
 						mb='16'
 						colorScheme='green'
 						_dark={{
