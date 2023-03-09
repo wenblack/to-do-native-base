@@ -113,7 +113,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.todo"
+    namespace 'com.wenblack.todo'
     defaultConfig {
         applicationId 'com.wenblack.todo'
         minSdkVersion rootProject.ext.minSdkVersion
