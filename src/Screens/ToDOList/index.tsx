@@ -160,6 +160,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 				_dark={{
 					bg: 'blueGray.700'
 				}}
+				zIndex='1'
 			>
 				<Center
 					width={'100%'}
@@ -195,8 +196,9 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 				safeArea
 				space={4}
 				display='flex'
+
 			>
-				<Box w={'80'}>
+				<Box w={'80'} pb='2'>
 					<Heading
 						size='md'
 						fontWeight='800'

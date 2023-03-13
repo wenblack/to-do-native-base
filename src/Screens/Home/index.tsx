@@ -249,7 +249,7 @@ export function Home({ font, fontTitle }: fontProps) {
 							value={listName}
 							onChangeText={setListName}
 							returnKeyType='next'
-							autoComplete='birthdate-day'
+							autoComplete='password'
 							_light={{
 								_focus: {
 									borderColor: 'green.500',
