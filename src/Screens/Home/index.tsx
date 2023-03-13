@@ -187,7 +187,7 @@ export function Home({ font, fontTitle }: fontProps) {
 					<Icon
 						size={40}
 						name='checksquare'
-						color={colorMode === 'light' ? '#15803D' : '#0f172a'}
+						color={colorMode === 'light' ? '#15803D' : '#4f46e5'}
 					/>
 					<Heading
 						size='2xl'

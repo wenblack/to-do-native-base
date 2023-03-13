@@ -9,7 +9,6 @@ import {
 	Checkbox,
 	Text,
 	Toast,
-	Divider,
 	KeyboardAvoidingView,
 	Center,
 	useColorMode
@@ -21,6 +20,7 @@ import { ButtonProps } from '../../components/LogOutButton'
 import { MenuRight } from '../../components/MenuRight'
 import Logo from 'react-native-vector-icons/AntDesign'
 import { MenuItemProps } from '../../components/MenuRight'
+import { LoadingModal } from '../../components/LoadingModal'
 
 interface TaskProps {
 	title: string
@@ -132,6 +132,9 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 		})
 	}
 
+	function Teste() {
+		alert('Teste')
+	}
 	return (
 		<KeyboardAvoidingView
 			h={'100%'}
@@ -185,9 +188,9 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 					</HStack>
 
 					<MenuRight
-						editNameFunction={editNameFunction}
+						editNameFunction={Teste}
 						logOutFunction={logOutFunction}
-						editListFunction={editListFunction}
+						editListFunction={Teste}
 					></MenuRight>
 				</Center>
 			</HStack>

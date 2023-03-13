@@ -55,9 +55,7 @@ export function MenuRight({ editNameFunction, editListFunction, logOutFunction }
 							font='Inter_500Medium'
 						/>
 					</Menu.Item>
-					<Menu.Item
-						onPress={editNameFunction}
-					>
+					<Menu.Item onPress={editNameFunction}>
 						<MenuItem
 							iconName='user'
 							title='Edit your Name'
@@ -67,9 +65,7 @@ export function MenuRight({ editNameFunction, editListFunction, logOutFunction }
 							font='Inter_500Medium'
 						/>
 					</Menu.Item>
-					<Menu.Item
-						onPress={editListFunction}
-					>
+					<Menu.Item onPress={editListFunction}>
 						<MenuItem
 							borderSize={1}
 							iconName='edit'
@@ -79,9 +75,7 @@ export function MenuRight({ editNameFunction, editListFunction, logOutFunction }
 							font='Inter_500Medium'
 						/>
 					</Menu.Item>
-					<Menu.Item
-						onPress={logOutFunction}
-					>
+					<Menu.Item onPress={logOutFunction}>
 						<MenuItem
 							borderSize={0}
 							iconName='power'
