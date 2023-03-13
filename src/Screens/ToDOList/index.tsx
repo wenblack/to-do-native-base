@@ -20,7 +20,9 @@ import { ButtonProps } from '../../components/LogOutButton'
 import { MenuRight } from '../../components/MenuRight'
 import Logo from 'react-native-vector-icons/AntDesign'
 import { MenuItemProps } from '../../components/MenuRight'
-import { LoadingModal } from '../../components/LoadingModal'
+import { Footer } from '../../components/Footer'
+import { StatusBar } from '../../components/StatusBar'
+
 
 interface TaskProps {
 	title: string
@@ -199,153 +201,160 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 				safeArea
 				space={4}
 				display='flex'
-
 			>
-				<Box w={'80'} pb='2'>
-					<Heading
-						size='md'
-						fontWeight='800'
-						fontFamily={'Inter_800ExtraBold'}
-						color='green.800'
-						marginBottom={'2'}
-						_dark={{
-							color: 'warmGray.50'
-						}}
-						textTransform={'uppercase'}
-					>
-						{listName}
-					</Heading>
-					<HStack
-						space={2}
-						marginBottom={2}
-						alignItems='center'
-					>
-						<Input
-							flex={1}
-							onChangeText={(v) => setInputValue(v)}
-							value={inputValue}
-							fontSize='md'
-							placeholder='Add Task'
-							onSubmitEditing={() => {
-								addItem(inputValue)
-								setInputValue('')
-							}}
-							_light={{
-								_focus: {
-									borderColor: 'green.500',
-									shadow: '0',
-									borderWidth: '1'
-								}
-							}}
+				<Center>
+
+
+					<Box w={'80'} pb='2'>
+						<Heading
+							size='md'
+							fontWeight='800'
+							fontFamily={'Inter_800ExtraBold'}
+							color='green.800'
+							marginBottom={'2'}
 							_dark={{
-								borderColor: 'warmGray.300',
-								placeholderTextColor: '#737373',
-								color: 'white'
+								color: 'warmGray.50'
 							}}
-						/>
-						<IconButton
-							borderRadius='sm'
-							variant='solid'
-							background={'green.700'}
-							_dark={{
-								bg: 'blueGray.600'
-							}}
-							icon={
-								<Icon
-									as={Feather}
-									name='plus'
-									size='sm'
-									color='warmGray.50'
-								/>
-							}
-							onPress={() => {
-								addItem(inputValue)
-								setInputValue('')
-							}}
-						/>
-					</HStack>
-					<VStack
-						alignItems='center'
-						height={'full'}
-						px={2}
-						mt={2}
-					>
-						{list.map((item, itemI) => (
-							<HStack
-								w='100%'
-								justifyContent='space-between'
-								alignItems='center'
-								key={item.title + itemI.toString()}
-								borderColor={item.isCompleted ? 'green.500' : 'red.500'}
+							textTransform={'uppercase'}
+						>
+							{listName}
+						</Heading>
+						<HStack
+							space={2}
+							marginBottom={4}
+							alignItems='center'
+						>
+							<Input
+								flex={1}
+								onChangeText={(v) => setInputValue(v)}
+								value={inputValue}
+								fontSize='md'
+								placeholder='Add Task'
+								onSubmitEditing={() => {
+									addItem(inputValue)
+									setInputValue('')
+								}}
 								_light={{
-									bg: item.isCompleted ? 'green.100' : 'red.100'
+									_focus: {
+										borderColor: 'green.500',
+										shadow: '0',
+										borderWidth: '1'
+									}
 								}}
-
-								rounded={'lg'}
 								_dark={{
-									bg: 'transparent',
-									borderColor: item.isCompleted ? 'primary.400' : 'warmGray.300'
+									borderColor: 'warmGray.300',
+									placeholderTextColor: '#737373',
+									color: 'white'
 								}}
+							/>
+							<IconButton
+								borderRadius='sm'
+								variant='solid'
+								background={'green.700'}
+								_dark={{
+									bg: 'blueGray.600'
+								}}
+								icon={
+									<Icon
+										as={Feather}
+										name='plus'
+										size='sm'
+										color='warmGray.50'
+									/>
+								}
+								onPress={() => {
+									addItem(inputValue)
+									setInputValue('')
+								}}
+							/>
+						</HStack>
+						<StatusBar></StatusBar>
 
-								borderWidth='2'
-								px='2'
-								py={2}
-								marginBottom={1}
-							>
-								<Checkbox
-									isChecked={item.isCompleted}
-									_dark={{
-										borderColor: item.isCompleted ? 'red.400' : 'warmGray.300',
-										backgroundColor: item.isCompleted ? 'primary.400' : 'transparent'
-									}}
+						<VStack
+							alignItems='center'
+							height={'full'}
+							px={2}
+							mt={4}
+						>
+							{list.map((item, itemI) => (
+								<HStack
+									w='100%'
+									justifyContent='space-between'
+									alignItems='center'
+									key={item.title + itemI.toString()}
 									borderColor={item.isCompleted ? 'green.500' : 'red.500'}
 									_light={{
-										background: item.isCompleted ? 'green.500' : 'transparent'
+										bg: item.isCompleted ? 'green.100' : 'red.100'
 									}}
-									onChange={() => handleStatusChange(itemI)}
-									value={item.title}
-									ml={2}
-								></Checkbox>
-								<Text
-									width='100%'
-									flexShrink={1}
-									textAlign='left'
-									mx='2'
-									fontWeight={'700'}
-									fontSize='md'
-									strikeThrough={item.isCompleted}
-									_light={{
-										color: item.isCompleted ? 'green.500' : 'red.500'
-									}}
+
+									rounded={'lg'}
 									_dark={{
-										color: item.isCompleted ? 'primary.400' : 'warmGray.300'
+										bg: 'transparent',
+										borderColor: item.isCompleted ? 'primary.400' : 'warmGray.300'
 									}}
-									onPress={() => handleStatusChange(itemI)}
+
+									borderWidth='2'
+									px='2'
+									py={2}
+									marginBottom={1}
 								>
-									{item.title}
-								</Text>
-								<IconButton
-									size='sm'
-									colorScheme='trueGray'
-									icon={
-										<Icon
-											as={Entypo}
-											name='trash'
-											size='md'
-											_dark={{
-												color: item.isCompleted ? 'primary.400' : 'warmGray.300'
-											}}
-											color={item.isCompleted ? 'green.500' : 'red.500'}
-											onPress={() => handleDelete(itemI)}
-										/>
-									}
-									onPressIn={() => handleDelete(itemI)}
-								/>
-							</HStack>
-						))}
-					</VStack>
-				</Box>
+									<Checkbox
+										isChecked={item.isCompleted}
+										_dark={{
+											borderColor: item.isCompleted ? 'red.400' : 'warmGray.300',
+											backgroundColor: item.isCompleted ? 'primary.400' : 'transparent'
+										}}
+										borderColor={item.isCompleted ? 'green.500' : 'red.500'}
+										_light={{
+											background: item.isCompleted ? 'green.500' : 'transparent'
+										}}
+										onChange={() => handleStatusChange(itemI)}
+										value={item.title}
+										ml={2}
+									></Checkbox>
+									<Text
+										width='100%'
+										flexShrink={1}
+										textAlign='left'
+										mx='2'
+										fontWeight={'700'}
+										fontSize='md'
+										strikeThrough={item.isCompleted}
+										_light={{
+											color: item.isCompleted ? 'green.500' : 'red.500'
+										}}
+										_dark={{
+											color: item.isCompleted ? 'primary.400' : 'warmGray.300'
+										}}
+										onPress={() => handleStatusChange(itemI)}
+									>
+										{item.title}
+									</Text>
+									<IconButton
+										size='sm'
+										colorScheme='trueGray'
+										icon={
+											<Icon
+												as={Entypo}
+												name='trash'
+												size='md'
+												_dark={{
+													color: item.isCompleted ? 'primary.400' : 'warmGray.300'
+												}}
+												color={item.isCompleted ? 'green.500' : 'red.500'}
+												onPress={() => handleDelete(itemI)}
+											/>
+										}
+										onPressIn={() => handleDelete(itemI)}
+									/>
+								</HStack>
+							))}
+						</VStack>
+					</Box>
+				</Center>
 			</VStack>
+
+
 		</KeyboardAvoidingView>
 	)
 }
