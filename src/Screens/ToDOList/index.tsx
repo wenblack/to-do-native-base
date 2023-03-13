@@ -15,12 +15,11 @@ import {
 } from 'native-base'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { ButtonProps } from '../../components/LogOutButton'
 import { MenuRight } from '../../components/MenuRight'
 import Logo from 'react-native-vector-icons/AntDesign'
 import { MenuItemProps } from '../../components/MenuRight'
-import { Footer } from '../../components/Footer'
 import { StatusBar } from '../../components/StatusBar'
 
 
@@ -39,6 +38,26 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 	const [list, setList] = React.useState(instState)
 	const [inputValue, setInputValue] = React.useState('')
 	const { colorMode, toggleColorMode } = useColorMode()
+	const [task, setTasks] = useState(0)
+	const [completedTask, SetCompletedTask] = useState(0)
+
+	useEffect(() => { }, [task])
+
+	function addTask() {
+		let totalPlus = task + 1
+		setTasks(totalPlus)
+		console.log(task)
+	}
+
+
+	function removeTask() {
+		let totalMinus = task - 1
+		setTasks(totalMinus)
+		console.log(task)
+	}
+
+	function toggleCompletedTask() {
+	}
 
 	const addItem = (title: string) => {
 		if (title === '') {
@@ -108,15 +127,18 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 			})
 		}
 
+
 		setList((prevList) => {
 			return [
 				...prevList,
 				{
 					title: title,
 					isCompleted: false
+
 				}
 			]
 		})
+		addTask()
 	}
 
 	const handleDelete = (index: number) => {
@@ -124,9 +146,12 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 			const temp = prevList.filter((_, itemI) => itemI !== index)
 			return temp
 		})
+		removeTask()
 	}
 
 	const handleStatusChange = (index: number) => {
+
+
 		setList((prevList) => {
 			const newList = [...prevList]
 			newList[index].isCompleted = !newList[index].isCompleted
