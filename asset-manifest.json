@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/to-do-native-base/static/js/main.185b32de.js",
-    "static/js/792.6591caef.js": "/to-do-native-base/static/js/792.6591caef.js",
+    "main.js": "/to-do-native-base/static/js/main.ed8db3ed.js",
+    "static/js/230.f4c8675f.js": "/to-do-native-base/static/js/230.f4c8675f.js",
     "static/media/MaterialCommunityIcons.ttf": "/to-do-native-base/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
     "static/media/Inter_800ExtraBold.ttf": "/to-do-native-base/static/media/Inter_800ExtraBold.e4a4cb7133001f282a15.ttf",
     "static/media/Inter_900Black.ttf": "/to-do-native-base/static/media/Inter_900Black.143c28420846d45c5834.ttf",
@@ -22,11 +22,11 @@
     "favicon-16.png": "/to-do-native-base/favicon-16.png",
     "manifest.json": "/to-do-native-base/manifest.json",
     "serve.json": "/to-do-native-base/serve.json",
-    "main.185b32de.js.map": "/to-do-native-base/static/js/main.185b32de.js.map",
-    "792.6591caef.js.map": "/to-do-native-base/static/js/792.6591caef.js.map"
+    "main.ed8db3ed.js.map": "/to-do-native-base/static/js/main.ed8db3ed.js.map",
+    "230.f4c8675f.js.map": "/to-do-native-base/static/js/230.f4c8675f.js.map"
   },
   "entrypoints": [
-    "static/js/792.6591caef.js",
-    "static/js/main.185b32de.js"
+    "static/js/230.f4c8675f.js",
+    "static/js/main.ed8db3ed.js"
   ]
 }
