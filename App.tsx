@@ -14,7 +14,7 @@ import { LoadingModal } from './src/components/LoadingModal';
 // Define the config
 const config = {
 	useSystemColorMode: true,
-	initialColorMode: 'auto'
+	initialColorMode: 'auto',
 }
 
 const fontConfig = {
@@ -73,7 +73,7 @@ export default function App() {
 		)
 	}
 	return (
-		<NativeBaseProvider theme={theme}>
+		<NativeBaseProvider theme={theme} >
 			<VStack
 				_dark={{ bg: 'blueGray.900' }}
 				_light={{ bg: 'blueGray.50' }}

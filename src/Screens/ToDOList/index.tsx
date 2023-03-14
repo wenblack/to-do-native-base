@@ -51,15 +51,30 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 
 
 	function removeTask() {
-		let totalMinus = task - 1
-		setTasks(totalMinus)
-		console.log(task)
+		if (task === completedTask) {
+			let totalMinus = task - 1
+			setTasks(totalMinus)
+			console.log(task)
+			removeCompletedTask()
+		}
+
+		else {
+			let totalMinus = task - 1
+			setTasks(totalMinus)
+			console.log(task)
+		}
 	}
 
 	function addCompletedTask() {
-		let totalPlus = completedTask + 1
-		SetCompletedTask(totalPlus)
-		console.log(completedTask)
+		if (task === completedTask) {
+			return
+		}
+		else {
+			let totalPlus = completedTask + 1
+			SetCompletedTask(totalPlus)
+			console.log(completedTask)
+		}
+
 	}
 
 	function removeCompletedTask() {
@@ -188,6 +203,8 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 			_web={{
 				marginTop: '24'
 			}}
+			_dark={{ bg: 'blueGray.900' }}
+			_light={{ bg: 'blueGray.50' }}
 		>
 			<HStack
 				width={'full'}
@@ -240,8 +257,13 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 				safeArea
 				space={4}
 				display='flex'
+				_dark={{ bg: 'blueGray.900' }}
+				_light={{ bg: 'blueGray.50' }}
 			>
-				<Center>
+				<Center
+					_dark={{ bg: 'blueGray.900' }}
+					_light={{ bg: 'blueGray.50' }}
+				>
 
 
 					<Box w={'80'} pb='2'>
@@ -251,10 +273,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 							fontFamily={'Inter_800ExtraBold'}
 							color='green.800'
 							marginBottom={'2'}
-							_dark={{
-								color: 'warmGray.50'
-							}}
-							textTransform={'uppercase'}
+							_dark={{ color: 'blueGray.50' }}
 						>
 							{listName}
 						</Heading>
@@ -317,6 +336,8 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 							height={'full'}
 							px={2}
 							mt={4}
+							_dark={{ bg: 'blueGray.900' }}
+							_light={{ bg: 'blueGray.50' }}
 						>
 							{list.map((item, itemI) => (
 								<HStack
