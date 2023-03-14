@@ -269,6 +269,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 						<Heading
 							size='md'
 							mt={4}
+							textTransform={'uppercase'}
 							fontWeight='800'
 							fontFamily={'Inter_800ExtraBold'}
 							color='green.800'
@@ -374,6 +375,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 										width='100%'
 										flexShrink={1}
 										textAlign='left'
+										textTransform={'lowercase'}
 										mx='2'
 										fontWeight={'700'}
 										fontSize='md'
