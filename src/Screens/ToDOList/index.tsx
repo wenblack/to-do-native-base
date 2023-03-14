@@ -11,7 +11,9 @@ import {
 	Toast,
 	KeyboardAvoidingView,
 	Center,
-	useColorMode
+	useColorMode,
+	Divider,
+	composeEventHandlers
 } from 'native-base'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
@@ -40,39 +42,23 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 	const { colorMode, toggleColorMode } = useColorMode()
 	const [task, setTasks] = useState(0)
 	const [completedTask, SetCompletedTask] = useState(0)
+	const [result, setReulst] = useState('error')
 
 	useEffect(() => { }, [task, completedTask])
 
 	function addTask() {
 		let totalPlus = task + 1
 		setTasks(totalPlus)
-		console.log(task)
-	}
-
-
-	function removeTask() {
-		if (task === completedTask) {
-			let totalMinus = task - 1
-			setTasks(totalMinus)
-			console.log(task)
-			removeCompletedTask()
-		}
-
-		else {
-			let totalMinus = task - 1
-			setTasks(totalMinus)
-			console.log(task)
-		}
 	}
 
 	function addCompletedTask() {
 		if (task === completedTask) {
 			return
+
 		}
 		else {
 			let totalPlus = completedTask + 1
 			SetCompletedTask(totalPlus)
-			console.log(completedTask)
 		}
 
 	}
@@ -80,10 +66,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 	function removeCompletedTask() {
 		let totalMinus = completedTask - 1
 		SetCompletedTask(totalMinus)
-		console.log(completedTask)
 	}
-
-
 
 	const addItem = (title: string) => {
 		if (title === '') {
@@ -172,7 +155,6 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 			const temp = prevList.filter((_, itemI) => itemI !== index)
 			return temp
 		})
-		removeTask()
 	}
 
 	const handleStatusChange = (index: number) => {
@@ -190,6 +172,8 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 			return newList
 		})
 	}
+
+
 
 	return (
 		<KeyboardAvoidingView
@@ -269,6 +253,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 					<Box w={'80'} pb='2'>
 						<Heading
 							size='md'
+							mt={4}
 							fontWeight='800'
 							fontFamily={'Inter_800ExtraBold'}
 							color='green.800'
@@ -326,17 +311,11 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 								}}
 							/>
 						</HStack>
-						<StatusBar
-							completed={completedTask}
-							total={task}
-							type='success'
-						/>
+
 
 						<VStack
 							alignItems='center'
 							height={'full'}
-							px={2}
-							mt={4}
 							_dark={{ bg: 'blueGray.900' }}
 							_light={{ bg: 'blueGray.50' }}
 						>
@@ -415,10 +394,27 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 							))}
 						</VStack>
 					</Box>
+
 				</Center>
 			</VStack>
 
-
+			<VStack
+				position={'fixed'}
+				bottom={0}
+				zIndex={1}
+				w={'full'}
+				bg={'warmGray.50'}
+				_dark={{
+					bg: 'blueGray.900'
+				}}
+			>
+				<Divider></Divider>
+				<StatusBar
+					completed={completedTask}
+					total={task}
+					type={result}
+				/>
+			</VStack>
 		</KeyboardAvoidingView>
 	)
 }

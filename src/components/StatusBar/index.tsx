@@ -1,4 +1,5 @@
 import { Center, Progress, HStack, IconButton, Text, useColorMode, VStack, Alert, Box } from 'native-base'
+import { useState } from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 interface boxProps {
@@ -11,48 +12,52 @@ interface boxProps {
 export function StatusBar({ total, completed, type }: boxProps) {
 	const { colorMode, toggleColorMode } = useColorMode()
 
-	if (type === 'error') {
+	if (total === completed) {
 		return (
 			<Center>
-				<VStack space={5} maxW="400" w={80}>
+				<VStack maxW="800" w='full'>
 					<Alert
 						w="100%"
-						status="error"
+						status="warning"
 						_dark={{
-							bg: 'transparent',
-							borderColor: 'red.500',
-							borderWidth: '1'
+							bg: 'blueGray.900',
 						}}
 						_light={{
-							borderColor: 'red.500',
-							borderWidth: '1'
+							bg: 'blueGray.50'
 						}}
-
+						fontFamily='Inter_800ExtraBold'
 					>
 						<VStack space={1} flexShrink={1} w="100%" alignItems="center">
+							<Center w="100%" mt={4} mb={2}>
+								<Box w="100%" maxW="400">
+									<VStack space="md">
+										<VStack space="md">
+											<Progress
+												max={total}
+												colorScheme={'green'}
+												size="md"
+												mx={4}
+												value={completed}
+											/>
+										</VStack>
+									</VStack>
+								</Box>
+							</Center>
 
-							<Alert.Icon size="md" />
-							<Text fontSize="md" fontWeight="medium"
-								_dark={{
-									color: 'warmGray.50'
-								}}
-								_light={{
-									color: 'red.700'
-								}}
-							>
-								Let's get started
-							</Text>
 
 							<Box
 								flexDirection='row'
 								_text={{
 									textAlign: "center"
 								}} >
-								<Text _dark={{
-									color: 'red.500'
-								}}
+								<Text
+									fontSize={'lg'}
+									fontFamily='Inter_700Bold'
+									_dark={{
+										color: 'green.500'
+									}}
 									_light={{
-										color: 'red.700'
+										color: 'green.500'
 									}}>
 									Complete {completed}/{total} tasks
 								</Text>
@@ -62,48 +67,52 @@ export function StatusBar({ total, completed, type }: boxProps) {
 				</VStack>
 			</Center>
 		)
-	} else if (type === 'warning') {
+	} else if (total * 0.5 >= completed) {
 		return (
 			<Center>
-				<VStack space={5} maxW="400" w={80}>
+				<VStack maxW="800" w='full'>
 					<Alert
 						w="100%"
-						status="warning"
+						status="error"
 						_dark={{
-							bg: 'transparent',
-							borderColor: 'yellow.500',
-							borderWidth: '1'
+							bg: 'blueGray.900',
 						}}
 						_light={{
-							borderColor: 'yellow.500',
-							borderWidth: '1'
+							bg: 'blueGray.50'
 						}}
-
+						fontFamily='Inter_800ExtraBold'
 					>
 						<VStack space={1} flexShrink={1} w="100%" alignItems="center">
+							<Center w="100%" mt={4} mb={2}>
+								<Box w="100%" maxW="400">
+									<VStack space="md">
+										<VStack space="md">
+											<Progress
+												max={total}
+												colorScheme={'red'}
+												size="md"
+												mx={4}
+												value={completed}
+											/>
+										</VStack>
+									</VStack>
+								</Box>
+							</Center>
 
-							<Alert.Icon size="md" />
-							<Text fontSize="md" fontWeight="medium"
-								_dark={{
-									color: 'warmGray.50'
-								}}
-								_light={{
-									color: 'yellow.700'
-								}}
-							>
-								Let's get started
-							</Text>
 
 							<Box
 								flexDirection='row'
 								_text={{
 									textAlign: "center"
 								}} >
-								<Text _dark={{
-									color: 'yellow.500'
-								}}
+								<Text
+									fontSize={'lg'}
+									fontFamily='Inter_700Bold'
+									_dark={{
+										color: 'red.500'
+									}}
 									_light={{
-										color: 'yellow.700'
+										color: 'red.500'
 									}}>
 									Complete {completed}/{total} tasks
 								</Text>
@@ -114,40 +123,33 @@ export function StatusBar({ total, completed, type }: boxProps) {
 			</Center>
 		)
 	}
+
 	return (
 		<Center>
-			<VStack space={5} maxW="400" w='full'>
+			<VStack maxW="800" w='full'>
 				<Alert
 					w="100%"
-					status="success"
+					status="warning"
 					_dark={{
-						bg: 'transparent',
-						borderColor: 'info.400',
-						borderWidth: '1'
+						bg: 'blueGray.900',
 					}}
 					_light={{
-						borderColor: 'green.500',
-						borderWidth: '1'
+						bg: 'blueGray.50'
 					}}
 					fontFamily='Inter_800ExtraBold'
 				>
 					<VStack space={1} flexShrink={1} w="100%" alignItems="center">
-
-						<Text fontSize="lg" fontWeight="bold"
-							_dark={{
-								color: 'warmGray.50'
-							}}
-							_light={{
-								color: 'green.700'
-							}}
-						>
-							Congratulations !
-						</Text>
-						<Center w="100%">
-							<Box w="80%" maxW="400">
+						<Center w="100%" mt={4} mb={2}>
+							<Box w="100%" maxW="400">
 								<VStack space="md">
-									<VStack mx="4" space="md">
-										<Progress max={total} colorScheme={'green'} size="md" value={completed} />
+									<VStack space="md">
+										<Progress
+											max={total}
+											colorScheme={'yellow'}
+											size="md"
+											mx={4}
+											value={completed}
+										/>
 									</VStack>
 								</VStack>
 							</Box>
@@ -160,13 +162,13 @@ export function StatusBar({ total, completed, type }: boxProps) {
 								textAlign: "center"
 							}} >
 							<Text
-								fontSize={'md'}
-								fontWeight={'semibold'}
+								fontSize={'lg'}
+								fontFamily='Inter_700Bold'
 								_dark={{
-									color: '#22d3ee'
+									color: 'yellow.500'
 								}}
 								_light={{
-									color: 'green.700'
+									color: 'yellow.500'
 								}}>
 								Complete {completed}/{total} tasks
 							</Text>
