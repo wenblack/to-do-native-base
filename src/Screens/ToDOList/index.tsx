@@ -54,13 +54,27 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 	function addCompletedTask() {
 		if (task === completedTask) {
 			return
-
 		}
 		else {
 			let totalPlus = completedTask + 1
 			SetCompletedTask(totalPlus)
 		}
 
+	}
+
+	function removeTask() {
+		if (task === completedTask) {
+			let totalMinus = task - 1
+			setTasks(totalMinus)
+			console.log(task)
+			removeCompletedTask()
+		}
+
+		else {
+			let totalMinus = task - 1
+			setTasks(totalMinus)
+			console.log(task)
+		}
 	}
 
 	function removeCompletedTask() {
@@ -155,6 +169,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 			const temp = prevList.filter((_, itemI) => itemI !== index)
 			return temp
 		})
+		removeTask()
 	}
 
 	const handleStatusChange = (index: number) => {
@@ -412,7 +427,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 				<StatusBar
 					completed={completedTask}
 					total={task}
-					type={result}
+					type={'error'}
 				/>
 			</VStack>
 		</KeyboardAvoidingView>
