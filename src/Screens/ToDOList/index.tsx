@@ -41,7 +41,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 	const [task, setTasks] = useState(0)
 	const [completedTask, SetCompletedTask] = useState(0)
 
-	useEffect(() => { }, [task])
+	useEffect(() => { }, [task, completedTask])
 
 	function addTask() {
 		let totalPlus = task + 1
@@ -56,8 +56,19 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 		console.log(task)
 	}
 
-	function toggleCompletedTask() {
+	function addCompletedTask() {
+		let totalPlus = completedTask + 1
+		SetCompletedTask(totalPlus)
+		console.log(completedTask)
 	}
+
+	function removeCompletedTask() {
+		let totalMinus = completedTask - 1
+		SetCompletedTask(totalMinus)
+		console.log(completedTask)
+	}
+
+
 
 	const addItem = (title: string) => {
 		if (title === '') {
@@ -155,13 +166,16 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 		setList((prevList) => {
 			const newList = [...prevList]
 			newList[index].isCompleted = !newList[index].isCompleted
+			if (newList[index].isCompleted) {
+				addCompletedTask()
+			} else if (!newList[index].isCompleted) {
+				removeCompletedTask()
+			}
+
 			return newList
 		})
 	}
 
-	function Teste() {
-		alert('Teste')
-	}
 	return (
 		<KeyboardAvoidingView
 			h={'100%'}
@@ -215,9 +229,9 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 					</HStack>
 
 					<MenuRight
-						editNameFunction={Teste}
+						editNameFunction={logOutFunction}
 						logOutFunction={logOutFunction}
-						editListFunction={Teste}
+						editListFunction={logOutFunction}
 					></MenuRight>
 				</Center>
 			</HStack>
@@ -293,7 +307,10 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 								}}
 							/>
 						</HStack>
-						<StatusBar></StatusBar>
+						<StatusBar
+							completed={completedTask}
+							total={task}
+						/>
 
 						<VStack
 							alignItems='center'
