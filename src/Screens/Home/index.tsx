@@ -144,7 +144,7 @@ export function Home({ font, fontTitle }: fontProps) {
 
 	useEffect(() => { }, [userInformed])
 
-	if (userInformed) {
+	if (!userInformed) {
 		return (
 			<ToDOList
 				onClick={logOut}

@@ -329,6 +329,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 						<StatusBar
 							completed={completedTask}
 							total={task}
+							type='success'
 						/>
 
 						<VStack
