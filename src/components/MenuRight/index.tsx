@@ -8,9 +8,10 @@ export interface MenuItemProps {
 	editNameFunction: (event: GestureResponderEvent) => void
 	editListFunction: (event: GestureResponderEvent) => void
 	logOutFunction: (event: GestureResponderEvent) => void
+	name?: string
 }
 
-export function MenuRight({ editNameFunction, editListFunction, logOutFunction }: MenuItemProps) {
+export function MenuRight({ editNameFunction, editListFunction, logOutFunction, name }: MenuItemProps) {
 	const [shouldOverlapWithTrigger] = useState(false)
 	const { colorMode, toggleColorMode } = useColorMode()
 
@@ -45,26 +46,41 @@ export function MenuRight({ editNameFunction, editListFunction, logOutFunction }
 						)
 					}}
 				>
-					<Menu.Item onPress={toggleColorMode}>
-						<MenuItem
-							iconName={colorMode === 'dark' ? 'sun' : 'moon'}
-							title='Change  theme'
-							color={colorMode === 'dark' ? 'white' : '#166534'}
-							textColor={colorMode === 'dark' ? 'white' : '#166534'}
-							borderSize={1}
-							font='Inter_500Medium'
-						/>
-					</Menu.Item>
-					<Menu.Item onPress={logOutFunction}>
-						<MenuItem
-							borderSize={0}
-							iconName='power'
-							title='Log Out'
-							font='Inter_500Medium'
-							color={colorMode === 'dark' ? 'white' : '#166534'}
-							textColor={colorMode === 'dark' ? 'white' : '#166534'}
-						/>
-					</Menu.Item>
+					<Menu.Group
+						title={'Welcome ' + name + '!'}
+						_title={{
+							fontFamily: 'Inter_800ExtraBold',
+							textAlign: 'center',
+							alignSelf: 'flex-end',
+							_light: {
+								color: 'success.900'
+							},
+							_dark: {
+								color: 'warmGray.200'
+							}
+						}}
+					>
+						<Menu.Item onPress={toggleColorMode}>
+							<MenuItem
+								iconName={colorMode === 'dark' ? 'sun' : 'moon'}
+								title='Change  theme'
+								color={colorMode === 'dark' ? 'white' : '#166534'}
+								textColor={colorMode === 'dark' ? 'white' : '#166534'}
+								borderSize={1}
+								font='Inter_500Medium'
+							/>
+						</Menu.Item>
+						<Menu.Item onPress={logOutFunction}>
+							<MenuItem
+								borderSize={0}
+								iconName='power'
+								title='Log Out'
+								font='Inter_500Medium'
+								color={colorMode === 'dark' ? 'white' : '#166534'}
+								textColor={colorMode === 'dark' ? 'white' : '#166534'}
+							/>
+						</Menu.Item>
+					</Menu.Group>
 				</Menu>
 			</VStack>
 			<StatusBar

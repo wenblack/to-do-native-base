@@ -13,7 +13,6 @@ import {
 	Center,
 	useColorMode,
 	Divider,
-	composeEventHandlers
 } from 'native-base'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
@@ -248,6 +247,7 @@ export function ToDOList({ onClick, listName, userName, editListFunction, editNa
 						editNameFunction={logOutFunction}
 						logOutFunction={logOutFunction}
 						editListFunction={logOutFunction}
+						name={userName}
 					></MenuRight>
 				</Center>
 			</HStack>
