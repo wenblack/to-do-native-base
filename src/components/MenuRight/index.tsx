@@ -55,26 +55,6 @@ export function MenuRight({ editNameFunction, editListFunction, logOutFunction }
 							font='Inter_500Medium'
 						/>
 					</Menu.Item>
-					<Menu.Item onPress={editNameFunction}>
-						<MenuItem
-							iconName='user'
-							title='Edit your Name'
-							color={colorMode === 'dark' ? 'white' : '#166534'}
-							textColor={colorMode === 'dark' ? 'white' : '#166534'}
-							borderSize={1}
-							font='Inter_500Medium'
-						/>
-					</Menu.Item>
-					<Menu.Item onPress={editListFunction}>
-						<MenuItem
-							borderSize={1}
-							iconName='edit'
-							title='Rename List'
-							color={colorMode === 'dark' ? 'white' : '#166534'}
-							textColor={colorMode === 'dark' ? 'white' : '#166534'}
-							font='Inter_500Medium'
-						/>
-					</Menu.Item>
 					<Menu.Item onPress={logOutFunction}>
 						<MenuItem
 							borderSize={0}
